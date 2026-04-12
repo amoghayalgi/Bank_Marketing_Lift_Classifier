@@ -1,12 +1,12 @@
 # Bank Marketing Campaign Optimization
 
-Predictive model to optimize bank term deposit campaign targeting using the [UCI Bank Marketing dataset](https://archive.ics.uci.edu/ml/datasets/bank+marketing).
+Predictive model to optimize bank term deposit campaign targeting using the UCI Bank Marketing dataset.
 
 ---
 
 ## Problem Overview
 
-**Business Challenge**: Bank direct marketing campaigns have **11.7% average response rate**. How can we use machine learning to identify **best prospects** and achieve **2-4x higher response rates**?
+**Business Challenge**: How can we use machine learning to identify **best prospects** of term deposit marketing campaign and achieve **2-4x higher response rates**?
 
 **Dataset**: 45,211 customer records with demographics, account info, and campaign contact details
 - **Target**: `y` (did customer subscribe to term deposit? yes/no)
