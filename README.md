@@ -1,15 +1,10 @@
-# bank-marketing-lift-classifier
-ML classifier that achieves 4x lift in bank term deposit subscription rates by predicting customer response probability from Portuguese bank marketing data
-
-# 🏦 Bank Marketing Campaign Optimization
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit-learn-1.2%2B-yellowgreen.svg)](https://scikit-learn.org/)
-[![XGBoost](https://img.shields.io/badge/XGBoost-1.7%2B-orange.svg)](https://xgboost.readthedocs.io/)
+# Bank Marketing Campaign Optimization
 
 Predictive model to optimize bank term deposit campaign targeting using the [UCI Bank Marketing dataset](https://archive.ics.uci.edu/ml/datasets/bank+marketing).
 
-## 📋 Problem Overview
+---
+
+## Problem Overview
 
 **Business Challenge**: Bank direct marketing campaigns have **11.7% average response rate**. How can we use machine learning to identify **best prospects** and achieve **2-4x higher response rates**?
 
@@ -17,12 +12,14 @@ Predictive model to optimize bank term deposit campaign targeting using the [UCI
 - **Target**: `y` (did customer subscribe to term deposit? yes/no)
 - **Features**: age, job, marital status, education, balance, housing/loan status, contact details, campaign timing
 
+---
+
 ## 🛠️ Modeling Approach
 
 ### Models Tested (5-fold Cross-Validation, ROC-AUC)
 | Model | CV ROC-AUC | Test ROC-AUC |
 |-------|------------|--------------|
-| **Random Forest** ✅ | **0.778** | **0.793** |
+| **Random Forest** | **0.778** | **0.793** |
 | XGBoost | 0.782 | 0.793 |
 | Logistic Regression | 0.738 | 0.746 |
 | Decision Tree | 0.728 | 0.727 |
@@ -31,27 +28,34 @@ Predictive model to optimize bank term deposit campaign targeting using the [UCI
 ### Hyperparameter Tuning
 **GridSearchCV** with 5-fold stratified cross-validation for all models:
 Random Forest (Best):
+```r
 ├── n_estimators: 100
 ├── max_depth: 20
 ├── min_samples_leaf: 5
 └── max_features: sqrt
+```
 XGBoost (Best):
+```r
 ├── learning_rate: 0.05
 ├── max_depth: 6
 └── n_estimators: 200
-
+```
 ### Primary Metric
 **ROC-AUC**: Handles class imabalnce
 
-## 🎯 **Best Model: Random Forest**
-**Why Random Forest?**
-✅ Tied for highest test ROC-AUC (0.793)
-✅ Excellent business lift (4.0x in top 10%)
-✅ Tree-based → Natural feature importance
-✅ Robust to outliers & missing values
-✅ No scaling needed (unlike KNN/LogReg)
+---
 
-## 📊 Key Results
+## **Best Model: Random Forest**
+**Why Random Forest?**
+- Tied for highest test ROC-AUC (0.793)
+- Excellent business lift (4.0x in top 10%)
+- Tree-based → Natural feature importance
+- Robust to outliers & missing values
+- No scaling needed (unlike KNN/LogReg)
+
+---
+
+## Key Results
 
 ### **Business Lift Table** (Test Set)
 | Top % | Response Rate | Lift |
@@ -63,22 +67,24 @@ XGBoost (Best):
 
 
 ### **Campaign Strategy**
-🎯 PRIORITY 1: Target top 20% by model score
+- PRIORITY 1: Target top 20% by model score
 → 34.6% response vs 11.7% random (3x lift)
 
-👥 PRIORITY 2: Focus on "retired" job segment
+- PRIORITY 2: Focus on "retired" job segment
 → Highest natural subscription rate
 
-📅 PRIORITY 3: May campaigns get 2x response
+- PRIORITY 3: May campaigns get 2x response
 → Time campaigns optimally
 
-💰 ROI: 5x cost reduction per subscriber
+- ROI: 5x cost reduction per subscriber
 
-## 📝 Notebook Structure
-1️⃣ Data Loading + EDA
-2️⃣ Preprocessing (One-hot + Scaling)
-3️⃣ Model Training + GridSearchCV
-4️⃣ Model Evaluation + Confusion Matrix
-5️⃣ Feature Importance Analysis
-6️⃣ Business Lift + Post-hoc Insights
+---
+
+## Notebook Structure
+- Data Loading + EDA
+- Preprocessing (One-hot + Scaling)
+- Model Training + GridSearchCV
+- Model Evaluation + Confusion Matrix
+- Feature Importance Analysis
+- Business Lift + Post-hoc Insights
 
